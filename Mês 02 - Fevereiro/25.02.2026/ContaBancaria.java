@@ -14,11 +14,17 @@ public class ContaBancaria {
 	String titular;
 	double saldo;
 
-	public void depositar(double valor) {
+	public void depositar(double valor) throws IllegalAccessException {
+		if (valor <= 0) {
+			throw new IllegalAccessException("valor invalido");
+		}
 		saldo += valor;
 	}
 
-	public void sacar(double valor) {
-		saldo -= valor;
+	public void sacar(double valor) throws IllegalAccessException {
+		if (valor <= 0) {
+				throw new IllegalAccessException("saldo insuficiente");
+		}
+		saldo -=valor;
 	}
 }
